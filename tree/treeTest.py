@@ -1,12 +1,11 @@
-from tree import Tree
+from tree import Node
 import unittest
 
 
-class TreeTester(unittest.TestCase):
+class NodeTester(unittest.TestCase):
     def setUp(self):
-        self.T = Tree()
+        self.N = Node()
 
 
 if __name__ == "__main__":
-    # unittest.main()
-    print('1')
+    unittest.main()
