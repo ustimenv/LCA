@@ -1,22 +1,23 @@
-from tree import Node
+from treeNode import TreeNode
+
 
 class LCA:
-    def __init__(self):
-        self.N = Node()
 
-    def findLCA(self, tree, A, B):
+    @staticmethod
+    def findLCA(tree, A, B):
         """
-    
+
         :param tree: Tree or subtree we are to search
-        :param A:   A node in the tree
-        :param B:   Another node in the tree
+        :param A:   A value of a node in the tree
+        :param B:   Value of another node's in the tree
+        If either A or B are not in the tree, the LCA is that node
         """
 
-        if A.data == tree.val or B.val == tree.val:
+        if tree is None or A == tree.data or B == tree.data:
             return tree
 
-        leftTree = self.findLCA(tree.left, A, B)
-        rightTree = self.findLCA(tree.right, A, B)
+        leftTree = LCA.findLCA(tree.left, A, B)
+        rightTree = LCA.findLCA(tree.right, A, B)
 
         if leftTree is None and rightTree is None:
             return None
@@ -28,7 +29,3 @@ class LCA:
             return rightTree
         else:
             return leftTree
-
-
-if __name__  == "__main__":
-    pass
